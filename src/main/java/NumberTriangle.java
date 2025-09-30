@@ -115,20 +115,20 @@ public class NumberTriangle {
         // so might want a variable for that.
         String line = br.readLine();
         NumberTriangle top = new NumberTriangle(Integer.parseInt(line));
-        ArrayList<NumberTriangle> prev_line = new ArrayList<NumberTriangle>();
+        ArrayList<NumberTriangle> prev_line = new ArrayList<>();
         prev_line.add(top);
         line = br.readLine();
         while (line != null) {
 
             String[] split =  line.split("\\s");
-            ArrayList<NumberTriangle> next_line = new ArrayList<NumberTriangle>();
+            ArrayList<NumberTriangle> next_line = new ArrayList<>();
 
             for (String s : split) {
                 next_line.add(new NumberTriangle(Integer.parseInt(s)));
             }
             for (int i = 0; i < prev_line.size(); i++) {
-                prev_line.get(i).left = next_line.get(i);
-                prev_line.get(i).right = next_line.get(i + 1);
+                prev_line.get(i).setLeft(next_line.get(i));
+                prev_line.get(i).setRight(next_line.get(i + 1));
 
             }
             //read the next line
